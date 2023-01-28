@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		16CC3BDD2984F43C00B881D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC3BDC2984F43C00B881D2 /* AppDelegate.swift */; };
-		16CC3BE12984F43C00B881D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC3BE02984F43C00B881D2 /* ViewController.swift */; };
 		16CC3BE42984F43C00B881D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CC3BE22984F43C00B881D2 /* Main.storyboard */; };
 		16CC3BE62984F43E00B881D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CC3BE52984F43E00B881D2 /* Assets.xcassets */; };
 		16CC3BE92984F43E00B881D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CC3BE72984F43E00B881D2 /* LaunchScreen.storyboard */; };
+		16CC3C552984F9F700B881D2 /* LTMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC3C542984F9F700B881D2 /* LTMainViewController.swift */; };
+		16CC3C592984FADB00B881D2 /* LTHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC3C582984FADB00B881D2 /* LTHomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		16CC3BD92984F43C00B881D2 /* LotteryTicket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LotteryTicket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CC3BDC2984F43C00B881D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		16CC3BE02984F43C00B881D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		16CC3BE32984F43C00B881D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		16CC3BE52984F43E00B881D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16CC3BE82984F43E00B881D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16CC3BEA2984F43E00B881D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16CC3C542984F9F700B881D2 /* LTMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTMainViewController.swift; sourceTree = "<group>"; };
+		16CC3C582984FADB00B881D2 /* LTHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTHomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,55 @@
 		16CC3BDB2984F43C00B881D2 /* LotteryTicket */ = {
 			isa = PBXGroup;
 			children = (
+				16CC3C4F2984F72C00B881D2 /* Modules */,
 				16CC3BDC2984F43C00B881D2 /* AppDelegate.swift */,
-				16CC3BE02984F43C00B881D2 /* ViewController.swift */,
 				16CC3BE22984F43C00B881D2 /* Main.storyboard */,
 				16CC3BE52984F43E00B881D2 /* Assets.xcassets */,
 				16CC3BE72984F43E00B881D2 /* LaunchScreen.storyboard */,
 				16CC3BEA2984F43E00B881D2 /* Info.plist */,
 			);
 			path = LotteryTicket;
+			sourceTree = "<group>";
+		};
+		16CC3C4F2984F72C00B881D2 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				16CC3C532984F9CC00B881D2 /* ViewModel */,
+				16CC3C522984F9C700B881D2 /* Model */,
+				16CC3C512984F9C000B881D2 /* View */,
+				16CC3C502984F9A600B881D2 /* Controller */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		16CC3C502984F9A600B881D2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				16CC3C542984F9F700B881D2 /* LTMainViewController.swift */,
+				16CC3C582984FADB00B881D2 /* LTHomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		16CC3C512984F9C000B881D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		16CC3C522984F9C700B881D2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		16CC3C532984F9CC00B881D2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +178,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16CC3BE12984F43C00B881D2 /* ViewController.swift in Sources */,
+				16CC3C592984FADB00B881D2 /* LTHomeViewController.swift in Sources */,
 				16CC3BDD2984F43C00B881D2 /* AppDelegate.swift in Sources */,
+				16CC3C552984F9F700B881D2 /* LTMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +332,6 @@
 				INFOPLIST_FILE = LotteryTicket/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -317,7 +360,6 @@
 				INFOPLIST_FILE = LotteryTicket/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
