@@ -142,9 +142,10 @@ class LTHomeBottomTabView: UIView {
         
         switch type {
         case .LTRecordType_SSQ:
-            self.showView.gLayer.colors = [UIColor.init(hexStr: "#B7DCFF").cgColor, UIColor.init(hexStr: "#B7DCFF").cgColor];
+            self.showView.gLayer.colors = [UIColor.init(hexStr: "#B7DCFF").cgColor, UIColor.init(hexStr: "#B7DCFF").cgColor]
         case .LTRecordType_DLT:
-            self.showView.gLayer.colors = [UIColor.init(hexStr: "#FFA4F6").cgColor, UIColor.init(hexStr: "#FFA4F6").cgColor];
+            self.showView.gLayer.colors = [UIColor.init(hexStr: "#FFA4F6").cgColor, UIColor.init(hexStr: "#FFA4F6").cgColor]
+            fallthrough
         default:
             break
         }
