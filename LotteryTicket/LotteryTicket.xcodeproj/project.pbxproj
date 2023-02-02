@@ -13,6 +13,7 @@
 		16620462298B62C600FDE166 /* LTResultDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16620461298B62C600FDE166 /* LTResultDataModel.swift */; };
 		16BC1447298B92D5000BA943 /* LTResultItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC1446298B92D5000BA943 /* LTResultItemCell.swift */; };
 		16BC146B298BB68E000BA943 /* LTResultListNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC146A298BB68E000BA943 /* LTResultListNavBarView.swift */; };
+		16BC146E298BCBA9000BA943 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC146D298BCBA9000BA943 /* Toast.swift */; };
 		16CC3BDD2984F43C00B881D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC3BDC2984F43C00B881D2 /* AppDelegate.swift */; };
 		16CC3BE42984F43C00B881D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CC3BE22984F43C00B881D2 /* Main.storyboard */; };
 		16CC3BE62984F43E00B881D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CC3BE52984F43E00B881D2 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		16620461298B62C600FDE166 /* LTResultDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTResultDataModel.swift; sourceTree = "<group>"; };
 		16BC1446298B92D5000BA943 /* LTResultItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTResultItemCell.swift; sourceTree = "<group>"; };
 		16BC146A298BB68E000BA943 /* LTResultListNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTResultListNavBarView.swift; sourceTree = "<group>"; };
+		16BC146D298BCBA9000BA943 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		16CC3BD92984F43C00B881D2 /* LotteryTicket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LotteryTicket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CC3BDC2984F43C00B881D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16CC3BE32984F43C00B881D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -135,6 +137,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16BC146C298BCBA9000BA943 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				16BC146D298BCBA9000BA943 /* Toast.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		16CC3BD02984F43C00B881D2 = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +230,7 @@
 		16CC3C62298523E600B881D2 /* ThirdSDK */ = {
 			isa = PBXGroup;
 			children = (
+				16BC146C298BCBA9000BA943 /* Toast */,
 				16CC3C63298523EE00B881D2 /* SnapKit */,
 			);
 			path = ThirdSDK;
@@ -390,6 +401,7 @@
 				16CC3C94298523FE00B881D2 /* ConstraintMakerExtendable.swift in Sources */,
 				16CC3C592984FADB00B881D2 /* LTHomeViewController.swift in Sources */,
 				16CC3C96298523FE00B881D2 /* ConstraintInsetTarget.swift in Sources */,
+				16BC146E298BCBA9000BA943 /* Toast.swift in Sources */,
 				16CC3CDB298654C800B881D2 /* UIColor+Extension.swift in Sources */,
 				16CC3CA8298523FF00B881D2 /* Debugging.swift in Sources */,
 				16CC3CA2298523FF00B881D2 /* ConstraintMaker.swift in Sources */,

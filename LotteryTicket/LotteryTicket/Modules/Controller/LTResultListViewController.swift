@@ -96,6 +96,8 @@ class LTResultListViewController: UIViewController, UITableViewDataSource, LTRes
     func copyClick(number: String) {
         let pasteboard = UIPasteboard.general
         pasteboard.string = number
+        
+        self.view.makeToast(String.init(format: "已复制到粘贴板：\n%@", number))
     }
     
     //MARK: < LazyLoad >
