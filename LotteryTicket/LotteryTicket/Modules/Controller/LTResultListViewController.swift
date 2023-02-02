@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LTResultListViewController: UIViewController, UITableViewDataSource {
+class LTResultListViewController: UIViewController, UITableViewDataSource, LTResultListNavBarViewDelegate, LTResultItemCellDelegate {
 
     /// 记录类型
     var type: LTRecordType?
@@ -46,9 +46,16 @@ class LTResultListViewController: UIViewController, UITableViewDataSource {
     //MARK: 渲染UI
     func setupUI() {
         
+        self.view.addSubview(navBarView)
+        navBarView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalTo(self.view).inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+            make.height.equalTo(CMConst.commonNavBarH)
+        }
+        
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.edges.equalTo(self.view)
+            make.top.equalTo(self.navBarView.snp.bottom)
+            make.leading.bottom.trailing.equalTo(self.view)
         }
     }
     
@@ -71,13 +78,37 @@ class LTResultListViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LTResultItemCell") as? LTResultItemCell
+        cell?.delegate = self
         cell?.recordType = self.type!
         cell?.refreshUI(withData: self.dataSourceArrayM[indexPath.row] as! LTResultDataItemModel)
         
         return cell!
     }
     
+    //MARK: < LTResultListNavBarViewDelegate >
+    
+    func navBarBackButtonClick() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: < LTResultItemCellDelegate >
+    
+    func copyClick(number: String) {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = number
+    }
+    
     //MARK: < LazyLoad >
+    
+    /// 导航栏
+    lazy var navBarView: LTResultListNavBarView = {
+        let tempView = LTResultListNavBarView()
+        tempView.delegate = self
+        tempView.type = self.type!
+        tempView.titleString = self.type == LTRecordType.LTRecordType_SSQ ? "双色球列表" : "大乐透列表"
+        
+        return tempView
+    }()
     
     /// 列表视图
     lazy var tableView: UITableView = {

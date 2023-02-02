@@ -21,4 +21,7 @@ struct CMConst {
     
     /// 通用彩票列表元素高度
     static let commonResultListItemHeight = 100
+    
+    /// 通用导航栏的高度
+    static let commonNavBarH = 88
 }

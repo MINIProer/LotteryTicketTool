@@ -31,7 +31,7 @@ class LTHomeViewController: UIViewController, LTHomeNavBarViewDelegate, LTHomeBo
         self.view.addSubview(self.homeNavBarView)
         self.homeNavBarView.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(self.view).inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
-            make.height.equalTo(LTHomeNavBarView.viewH)
+            make.height.equalTo(CMConst.commonNavBarH)
         }
         
         self.view.addSubview(self.homeBottomTabView)

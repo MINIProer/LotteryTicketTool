@@ -7,8 +7,17 @@
 
 import UIKit
 
+protocol LTResultItemCellDelegate {
+    
+    //MARK: 复制按钮点击
+    func copyClick(number: String)
+}
+
 class LTResultItemCell: UITableViewCell {
 
+    /// 代理对象
+    var delegate: LTResultItemCellDelegate?
+    
     /// 记录类型
     var recordType: LTRecordType = LTRecordType.LTRecordType_SSQ {
         didSet {
@@ -74,12 +83,18 @@ class LTResultItemCell: UITableViewCell {
     
     lazy var ssqResultView: LTSSQResultView = {
         let tempView = LTSSQResultView()
+        tempView.copyClickClourse = { value in
+            self.delegate?.copyClick(number: value)
+        }
         
         return tempView
     }()
     
     lazy var dltResultView: LTDLTResultView = {
         let tempView = LTDLTResultView()
+        tempView.copyClickClourse = { value in
+            self.delegate?.copyClick(number: value)
+        }
         
         return tempView
     }()

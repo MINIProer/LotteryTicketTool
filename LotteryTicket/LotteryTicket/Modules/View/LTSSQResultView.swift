@@ -7,8 +7,16 @@
 
 import UIKit
 
+typealias LTCopyClickClourse = (String) -> Void
+
 class LTSSQResultView: UIView {
 
+    /// 数据模型
+    var dataItemModel: LTResultDataItemModel?
+    
+    /// 复制点击回调
+    var copyClickClourse: LTCopyClickClourse?
+    
     //MARK: < Init >
     
     override init(frame: CGRect) {
@@ -81,11 +89,28 @@ class LTSSQResultView: UIView {
             make.leading.equalTo(rLabel6.snp.trailing).offset(20)
             make.size.equalTo(CGSize(width: 30, height: 30))
         }
+        
+        self.addSubview(copyButton)
+        copyButton.snp.makeConstraints { make in
+            make.centerY.equalTo(self)
+            make.trailing.equalTo(self).offset(-10)
+            make.size.equalTo(CGSize(width: 20, height: 20))
+        }
+    }
+    
+    //MARK: copy按钮点击事件
+    @objc func copyButtonTapAction() {
+        if copyClickClourse != nil {
+            copyClickClourse!(self.dataItemModel!.lotteryTicketNumber)
+        }
     }
     
     //MARK: < PublicMethod >
     
     func refreshUI(withData data: LTResultDataItemModel) {
+        
+        self.dataItemModel = data
+        
         let redBallsArray = data.red_ball_list
         let blueBallsArray = data.blue_ball_list
         
@@ -183,5 +208,15 @@ class LTSSQResultView: UIView {
         tempLabel.layer.masksToBounds = true
         
         return tempLabel
+    }()
+    
+    lazy var copyButton: UIImageView = {
+        let tempButton = UIImageView(image: UIImage(named: "lt_copy_icon"))
+        tempButton.isUserInteractionEnabled = true
+        
+        let tapGes = UITapGestureRecognizer(target: self, action: #selector(copyButtonTapAction))
+        tempButton.addGestureRecognizer(tapGes)
+        
+        return tempButton
     }()
 }

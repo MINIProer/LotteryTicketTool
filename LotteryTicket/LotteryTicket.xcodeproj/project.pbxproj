@@ -12,6 +12,7 @@
 		1662043E298A683600FDE166 /* LTResultListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1662043D298A683600FDE166 /* LTResultListViewController.swift */; };
 		16620462298B62C600FDE166 /* LTResultDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16620461298B62C600FDE166 /* LTResultDataModel.swift */; };
 		16BC1447298B92D5000BA943 /* LTResultItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC1446298B92D5000BA943 /* LTResultItemCell.swift */; };
+		16BC146B298BB68E000BA943 /* LTResultListNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC146A298BB68E000BA943 /* LTResultListNavBarView.swift */; };
 		16CC3BDD2984F43C00B881D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC3BDC2984F43C00B881D2 /* AppDelegate.swift */; };
 		16CC3BE42984F43C00B881D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CC3BE22984F43C00B881D2 /* Main.storyboard */; };
 		16CC3BE62984F43E00B881D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CC3BE52984F43E00B881D2 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		1662043D298A683600FDE166 /* LTResultListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTResultListViewController.swift; sourceTree = "<group>"; };
 		16620461298B62C600FDE166 /* LTResultDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTResultDataModel.swift; sourceTree = "<group>"; };
 		16BC1446298B92D5000BA943 /* LTResultItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTResultItemCell.swift; sourceTree = "<group>"; };
+		16BC146A298BB68E000BA943 /* LTResultListNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTResultListNavBarView.swift; sourceTree = "<group>"; };
 		16CC3BD92984F43C00B881D2 /* LotteryTicket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LotteryTicket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CC3BDC2984F43C00B881D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16CC3BE32984F43C00B881D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				16620439298A5D6800FDE166 /* LTSSQResultView.swift */,
 				1662043B298A643000FDE166 /* LTDLTResultView.swift */,
 				16BC1446298B92D5000BA943 /* LTResultItemCell.swift */,
+				16BC146A298BB68E000BA943 /* LTResultListNavBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				16CC3CA3298523FF00B881D2 /* ConstraintRelation.swift in Sources */,
 				16CC3CA1298523FF00B881D2 /* ConstraintMakerEditable.swift in Sources */,
 				16CC3CAE298523FF00B881D2 /* ConstraintMakerRelatable.swift in Sources */,
+				16BC146B298BB68E000BA943 /* LTResultListNavBarView.swift in Sources */,
 				16CC3C8C298523FE00B881D2 /* ConstraintMakerPrioritizable.swift in Sources */,
 				16CC3CA9298523FF00B881D2 /* ConstraintRelatableTarget.swift in Sources */,
 				16CC3CA6298523FF00B881D2 /* ConstraintItem.swift in Sources */,

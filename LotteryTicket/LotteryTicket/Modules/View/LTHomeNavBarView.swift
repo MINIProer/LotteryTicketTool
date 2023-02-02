@@ -23,9 +23,6 @@ class LTHomeNavBarView: UIView {
     /// 代理对象
     var delegate: LTHomeNavBarViewDelegate?
     
-    /// 导航栏的高度
-    static let viewH = 88
-
     //MARK: < Init >
     
     override init(frame: CGRect) {
