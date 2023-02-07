@@ -91,6 +91,11 @@ class LTResultListViewController: UIViewController, UITableViewDataSource, LTRes
         self.navigationController?.popViewController(animated: true)
     }
     
+    func navBarMoreButtonClick() {
+        let folderView = LTToolsFolderView(fatherView: self.view)
+        folderView.showActionView()
+    }
+    
     //MARK: < LTResultItemCellDelegate >
     
     func copyClick(number: String) {

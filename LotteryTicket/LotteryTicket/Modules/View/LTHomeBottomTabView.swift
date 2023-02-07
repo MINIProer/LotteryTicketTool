@@ -139,7 +139,6 @@ class LTHomeBottomTabView: UIView {
             }
         }
             
-        
         switch type {
         case .LTRecordType_SSQ:
             self.showView.gLayer.colors = [UIColor.init(hexStr: "#B7DCFF").cgColor, UIColor.init(hexStr: "#B7DCFF").cgColor]

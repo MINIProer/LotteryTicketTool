@@ -11,6 +11,9 @@ protocol LTResultListNavBarViewDelegate {
     
     //MARK: 导航栏返回按钮点击
     func navBarBackButtonClick()
+    
+    //MARK:
+    func navBarMoreButtonClick()
 }
 
 class LTResultListNavBarView: UIView {
@@ -76,9 +79,14 @@ class LTResultListNavBarView: UIView {
         }
     }
     
-    //MARK:
+    //MARK: 返回按钮点击事件
     @objc func backButtonTapAction() {
         self.delegate?.navBarBackButtonClick()
+    }
+    
+    //MARK: 更多按钮点击事件
+    @objc func moreButtonTapAction() {
+        self.delegate?.navBarMoreButtonClick()
     }
     
     //MARK: < LazyLoad >
@@ -106,7 +114,7 @@ class LTResultListNavBarView: UIView {
         let tempButton = UIImageView(image: UIImage(named: "lm_legion_member_cell_more_icon"))
         tempButton.isUserInteractionEnabled = true
         
-        let tapGes = UITapGestureRecognizer(target: self, action: #selector(backButtonTapAction))
+        let tapGes = UITapGestureRecognizer(target: self, action: #selector(moreButtonTapAction))
         tempButton.addGestureRecognizer(tapGes)
         
         return tempButton

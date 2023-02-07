@@ -24,4 +24,10 @@ struct CMConst {
     
     /// 通用导航栏的高度
     static let commonNavBarH = 88
+    
+    /// 屏幕宽度
+    static let ScreenWidth = UIScreen.main.bounds.width
+    
+    /// 屏幕高度
+    static let ScreenHeight = UIScreen.main.bounds.height
 }
