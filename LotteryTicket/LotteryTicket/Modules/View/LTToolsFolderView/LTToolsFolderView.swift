@@ -12,17 +12,25 @@ class LTToolsFolderView: UIView, UICollectionViewDataSource, UICollectionViewDel
     /// 父控件
     let fatherView: UIView?
     
+    /// 抽屉栏VM
+    var folderVM: LTFolderViewModel?
+    
     /// 工具抽屉栏高度
     static let folderViewH = 154
     
+    /// 记录类型
+    var recordType: LTRecordType?
+    
     //MARK: < Init >
     
-    init(fatherView: UIView?) {
+    init(fatherView: UIView?, folderVM: LTFolderViewModel?) {
         self.fatherView = fatherView
+        self.folderVM = folderVM
         super.init(frame: CGRectZero)
         
         configDefault()
         setupUI()
+        loadData()
     }
     
     required init?(coder: NSCoder) {
@@ -91,6 +99,11 @@ class LTToolsFolderView: UIView, UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
+    //MARK: 加载数据
+    func loadData() {
+        collectionView.reloadData()
+    }
+    
     //MARK: 抽屉空白点击事件
     @objc func folderViewTapAction() {
         self.hideActionView()
@@ -99,14 +112,35 @@ class LTToolsFolderView: UIView, UICollectionViewDataSource, UICollectionViewDel
     //MARK: < UICollectionViewDataSource & UICollectionViewDelegate >
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.folderVM!.dataSourceArrayM.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "123", for: indexPath)
-        cell.backgroundColor = UIColor.cyan
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LTFolderItemCell", for: indexPath) as! LTFolderItemCell
+        cell.recordType = self.recordType!
+        cell.refreshUI(withModel: folderVM!.dataSourceArrayM[indexPath.row])
+        
+        cell.helpClickClourse = { desc in
+            self.makeToast(desc, position: .center)
+        }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? LTFolderItemCell else {
+            return
+        }
+    
+        cell.doAnimation()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? LTFolderItemCell else {
+            return
+        }
+    
+        cell.removeAnimation()
     }
     
     //MARK: < LazyLoad >
@@ -138,7 +172,7 @@ class LTToolsFolderView: UIView, UICollectionViewDataSource, UICollectionViewDel
         tempCollectionView.collectionViewLayout = layout;
         tempCollectionView.showsHorizontalScrollIndicator = false;
         
-        tempCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "123")
+        tempCollectionView.register(LTFolderItemCell.self, forCellWithReuseIdentifier: "LTFolderItemCell")
         
         return tempCollectionView
     }()

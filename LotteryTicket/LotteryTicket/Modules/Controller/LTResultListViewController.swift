@@ -61,6 +61,8 @@ class LTResultListViewController: UIViewController, UITableViewDataSource, LTRes
     
     //MARK: 加载数据
     func loadData() {
+        
+        // 列表数据源
         var dataSourceVM = LTDataSourceViewModel()
         dataSourceVM.dataSourceType = LTDataSourceType(rawValue: self.type!.rawValue)
         dataSourceVM.fetchLotteryTicketResult(withTimes: 8) { model in
@@ -68,6 +70,9 @@ class LTResultListViewController: UIViewController, UITableViewDataSource, LTRes
             self.dataSourceArrayM += model.data
             self.tableView.reloadData()
         }
+        
+        // 抽屉数据源
+        folderVM.configDataSource()
     }
     
     //MARK: < UITablViewDatsource >
@@ -92,7 +97,8 @@ class LTResultListViewController: UIViewController, UITableViewDataSource, LTRes
     }
     
     func navBarMoreButtonClick() {
-        let folderView = LTToolsFolderView(fatherView: self.view)
+        let folderView = LTToolsFolderView(fatherView: self.view, folderVM: folderVM)
+        folderView.recordType = self.type
         folderView.showActionView()
     }
     
@@ -128,4 +134,7 @@ class LTResultListViewController: UIViewController, UITableViewDataSource, LTRes
         
         return tempTableView
     }()
+    
+    /// 抽屉栏VM
+    lazy var folderVM = LTFolderViewModel()
 }

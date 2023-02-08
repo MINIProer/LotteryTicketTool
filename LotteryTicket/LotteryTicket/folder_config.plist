@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>筛选公式-1</string>
+		<key>desc</key>
+		<string>公式描述 - 1</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>筛选公式-2</string>
+		<key>desc</key>
+		<string>公式描述 - 2</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>筛选公式-3</string>
+		<key>desc</key>
+		<string>公式描述 - 3</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>筛选公式-4</string>
+		<key>desc</key>
+		<string>公式描述 - 4</string>
+	</dict>
+</array>
+</plist>
