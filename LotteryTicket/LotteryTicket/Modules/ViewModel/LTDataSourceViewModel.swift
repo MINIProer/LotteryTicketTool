@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 enum LTDataSourceType: Int {
     case LTDataSourceType_SSQ = 0 /// 双色球
     case LTDataSourceType_DLT = 1 /// 大乐透
 }
 
-struct LTDataSourceViewModel {
+class LTDataSourceViewModel {
     
     /// 数据源类型
     var dataSourceType: LTDataSourceType?
@@ -26,6 +27,14 @@ struct LTDataSourceViewModel {
     /// 10次数据源
     var originValueDataSourceDict: [String : [Any]] = [:]
     
+    /// 缓存下来的数据源
+    var cacheDataSourceModel: LTResultDataModel?
+    
+    weak var controller: UIViewController?
+    
+    /// 生成彩票次数
+    var times: Int?
+    
     //MARK: < PrivateMethod >
     
     //MARK: 获取一个范围内的随机数
@@ -34,7 +43,7 @@ struct LTDataSourceViewModel {
     }
     
     //MARK: 生成红球数据源
-    mutating func fetchRandomRedBallsResult() {
+    func fetchRandomRedBallsResult() {
         
         redBallsResultArrayM.removeAll()
         
@@ -57,7 +66,7 @@ struct LTDataSourceViewModel {
     }
     
     //MARK: 生成蓝球数据源
-    mutating func fetchRandomBlueBallsResult() {
+    func fetchRandomBlueBallsResult() {
         
         blueBallsResultArrayM.removeAll()
         
@@ -79,7 +88,12 @@ struct LTDataSourceViewModel {
         }
     }
     
-    mutating func fetchLotteryTicketResult(withTimes times: Int, completionHandle: (LTResultDataModel) -> Void) {
+    //MARK: < PublicMethod >
+    
+    //MARK: 查询彩票结果列表
+    func fetchLotteryTicketResult(withTimes times: Int, completionHandle: (LTResultDataModel) -> Void) {
+        
+        self.times = times
         
         var originValueTempDataSourceArrayM = [[String : [Any]]]()
         
@@ -111,9 +125,51 @@ struct LTDataSourceViewModel {
         
         do {
             let model = try JSONDecoder().decode(LTResultDataModel.self, from: data!)
+            self.cacheDataSourceModel = model
             completionHandle(model)
         } catch let error {
             print(error)
         }
+    }
+    
+    //MARK: 根据索引处理玩法
+    func handlePlayWay(withIndex index: Int) -> LTResultDataItemModel? {
+        
+        var model: LTResultDataItemModel?
+        
+        switch index {
+        case 1:
+            model = randomFetchOneResultFromDataSource()
+        default:
+            self.controller?.view.makeToast("123123123")
+            break
+        }
+        
+        return model
+    }
+    
+    //MARK: 玩法一：从数据源中随机找出一个彩票
+    private func randomFetchOneResultFromDataSource() -> LTResultDataItemModel? {
+        
+        guard self.cacheDataSourceModel != nil else {
+            assert(false, "缓存数据源为空，请检查")
+            return nil
+        }
+        
+        guard self.times != 0 else {
+            assert(false, "生成彩票的次数不能为0，请检查")
+            return nil
+        }
+        
+        let index = getRandomNumber(from: 0, to: self.times! - 1)
+        
+        guard index < self.cacheDataSourceModel!.data.count else {
+            assert(false, "索引越界，请检查")
+            return nil
+        }
+        
+        let resultItemModel = self.cacheDataSourceModel!.data[index]
+        
+        return resultItemModel
     }
 }

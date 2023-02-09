@@ -51,7 +51,6 @@ class LTHomeViewController: UIViewController, LTHomeNavBarViewDelegate, LTHomeBo
     //MARK: < LTHomeBottomTabViewDelegate >
     
     func showRecordListPage(withType type: LTRecordType) {
-        print(type)
         let resultListVC = LTResultListViewController.init(type: type)
         self.navigationController?.pushViewController(resultListVC, animated: true)
     }

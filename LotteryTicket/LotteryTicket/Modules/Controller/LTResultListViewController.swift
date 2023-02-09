@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LTResultListViewController: UIViewController, UITableViewDataSource, LTResultListNavBarViewDelegate, LTResultItemCellDelegate {
+class LTResultListViewController: UIViewController, UITableViewDataSource, LTResultListNavBarViewDelegate, LTResultItemCellDelegate, LTToolsFolderViewDelegate {
 
     /// 记录类型
     var type: LTRecordType?
@@ -63,9 +63,7 @@ class LTResultListViewController: UIViewController, UITableViewDataSource, LTRes
     func loadData() {
         
         // 列表数据源
-        var dataSourceVM = LTDataSourceViewModel()
-        dataSourceVM.dataSourceType = LTDataSourceType(rawValue: self.type!.rawValue)
-        dataSourceVM.fetchLotteryTicketResult(withTimes: 8) { model in
+        self.dataSourceVM.fetchLotteryTicketResult(withTimes: 10) { model in
             self.dataSourceArrayM = []
             self.dataSourceArrayM += model.data
             self.tableView.reloadData()
@@ -82,10 +80,13 @@ class LTResultListViewController: UIViewController, UITableViewDataSource, LTRes
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LTResultItemCell") as? LTResultItemCell
-        cell?.delegate = self
-        cell?.recordType = self.type!
-        cell?.refreshUI(withData: self.dataSourceArrayM[indexPath.row] as! LTResultDataItemModel)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "LTResultItemCell") as? LTResultItemCell
+        if cell == nil {
+            cell = LTResultItemCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "LTResultItemCell")
+        }
+        cell!.delegate = self
+        cell!.recordType = self.type!
+        cell!.refreshUI(withData: self.dataSourceArrayM[indexPath.row] as! LTResultDataItemModel)
         
         return cell!
     }
@@ -98,6 +99,7 @@ class LTResultListViewController: UIViewController, UITableViewDataSource, LTRes
     
     func navBarMoreButtonClick() {
         let folderView = LTToolsFolderView(fatherView: self.view, folderVM: folderVM)
+        folderView.delegate = self
         folderView.recordType = self.type
         folderView.showActionView()
     }
@@ -105,10 +107,22 @@ class LTResultListViewController: UIViewController, UITableViewDataSource, LTRes
     //MARK: < LTResultItemCellDelegate >
     
     func copyClick(number: String) {
+        
         let pasteboard = UIPasteboard.general
+        
         pasteboard.string = number
         
         self.view.makeToast(String.init(format: "已复制到粘贴板：\n%@", number))
+    }
+    
+    //MARK: < LTToolsFolderViewDelegate >
+    
+    func clickItem(withIndex index: Int) {
+        
+        if let model = dataSourceVM.handlePlayWay(withIndex: index) {
+        
+            self.view.makeToast(String.init(format: "随机值：\n%@", model.lotteryTicketNumber))
+        }
     }
     
     //MARK: < LazyLoad >
@@ -133,6 +147,15 @@ class LTResultListViewController: UIViewController, UITableViewDataSource, LTRes
         tempTableView.register(LTResultItemCell.self, forCellReuseIdentifier: "LTResultItemCell")
         
         return tempTableView
+    }()
+    
+    /// 列表数据VM
+    lazy var dataSourceVM: LTDataSourceViewModel = {
+        let tempVM = LTDataSourceViewModel()
+        tempVM.controller = self
+        tempVM.dataSourceType = LTDataSourceType(rawValue: self.type!.rawValue)
+        
+        return tempVM
     }()
     
     /// 抽屉栏VM

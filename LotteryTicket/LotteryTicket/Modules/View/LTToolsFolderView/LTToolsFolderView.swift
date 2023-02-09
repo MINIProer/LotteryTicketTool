@@ -7,8 +7,17 @@
 
 import UIKit
 
+protocol LTToolsFolderViewDelegate {
+    
+    //MARK: 点击抽屉栏元素
+    func clickItem(withIndex index: Int)
+}
+
 class LTToolsFolderView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    /// 代理对象
+    var delegate: LTToolsFolderViewDelegate?
+    
     /// 父控件
     let fatherView: UIView?
     
@@ -118,7 +127,15 @@ class LTToolsFolderView: UIView, UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LTFolderItemCell", for: indexPath) as! LTFolderItemCell
         cell.recordType = self.recordType!
-        cell.refreshUI(withModel: folderVM!.dataSourceArrayM[indexPath.row])
+        
+        var model = folderVM!.dataSourceArrayM[indexPath.row]
+        model.recordType = self.recordType
+        
+        cell.refreshUI(withModel: model)
+        
+        cell.cellClickClourse = { () in
+            self.delegate?.clickItem(withIndex: indexPath.row)
+        }
         
         cell.helpClickClourse = { desc in
             self.makeToast(desc, position: .center)

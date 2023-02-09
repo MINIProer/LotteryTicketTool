@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum LTRecordType: Int {
+enum LTRecordType: Int, Codable {
     case LTRecordType_SSQ = 0
     case LTRecordType_DLT = 1
 }

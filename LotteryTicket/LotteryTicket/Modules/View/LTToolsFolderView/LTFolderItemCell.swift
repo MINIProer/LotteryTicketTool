@@ -8,6 +8,7 @@
 import UIKit
 
 typealias LTHelpClickClourse = (String) -> Void
+typealias LTCellClickClourse = () -> Void
 
 class LTFolderItemCell: UICollectionViewCell {
     
@@ -20,6 +21,9 @@ class LTFolderItemCell: UICollectionViewCell {
     
     /// 抽屉栏Item数据模型
     var itemModel: LTFolderItemModel?
+    
+    /// cell点击回调
+    var cellClickClourse: LTCellClickClourse?
     
     /// 帮助按钮点击回调
     var helpClickClourse: LTHelpClickClourse?
@@ -69,6 +73,9 @@ class LTFolderItemCell: UICollectionViewCell {
     func configDefault() {
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
+        
+        let tapGes = UITapGestureRecognizer(target: self, action: #selector(cellTapAction))
+        self.addGestureRecognizer(tapGes)
     }
     
     //MARK: 渲染UI
@@ -98,10 +105,17 @@ class LTFolderItemCell: UICollectionViewCell {
         self.backgroundColor = recordType == LTRecordType.LTRecordType_SSQ ? UIColor.init(hexStr: "#B7DCFF").withAlphaComponent(0.4) : UIColor.init(hexStr: "#FFA4F6").withAlphaComponent(0.4)
     }
     
+    //MARK: cell的点击
+    @objc func cellTapAction() {
+        if cellClickClourse != nil {
+            cellClickClourse!()
+        }
+    }
+    
     //MARK: 帮助图片点击事件
     @objc func helpImageViewTapAction() {
         if helpClickClourse != nil {
-            helpClickClourse!(self.itemModel!.desc)
+            helpClickClourse!(self.itemModel!.realShowDesc)
         }
     }
     
@@ -114,6 +128,7 @@ class LTFolderItemCell: UICollectionViewCell {
         tempLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
         tempLabel.textAlignment = NSTextAlignment.center
         tempLabel.numberOfLines = 0
+        tempLabel.isUserInteractionEnabled = true
         
         return tempLabel
     }()

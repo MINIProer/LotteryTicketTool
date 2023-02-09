@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LTResultItemCellDelegate {
+protocol LTResultItemCellDelegate: NSObjectProtocol {
     
     //MARK: 复制按钮点击
     func copyClick(number: String)
@@ -16,7 +16,7 @@ protocol LTResultItemCellDelegate {
 class LTResultItemCell: UITableViewCell {
 
     /// 代理对象
-    var delegate: LTResultItemCellDelegate?
+    weak var delegate: LTResultItemCellDelegate?
     
     /// 记录类型
     var recordType: LTRecordType = LTRecordType.LTRecordType_SSQ {

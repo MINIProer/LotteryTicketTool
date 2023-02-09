@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LTResultListNavBarViewDelegate {
+protocol LTResultListNavBarViewDelegate: AnyObject {
     
     //MARK: 导航栏返回按钮点击
     func navBarBackButtonClick()
@@ -25,7 +25,7 @@ class LTResultListNavBarView: UIView {
     }
     
     /// 代理对象
-    var delegate: LTResultListNavBarViewDelegate?
+    weak var delegate: LTResultListNavBarViewDelegate?
     
     /// 导航栏标题
     var titleString: String = "" {
