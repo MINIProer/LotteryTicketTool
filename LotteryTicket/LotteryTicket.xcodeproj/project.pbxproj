@@ -11,6 +11,9 @@
 		1662043C298A643000FDE166 /* LTDLTResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1662043B298A643000FDE166 /* LTDLTResultView.swift */; };
 		1662043E298A683600FDE166 /* LTResultListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1662043D298A683600FDE166 /* LTResultListViewController.swift */; };
 		16620462298B62C600FDE166 /* LTResultDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16620461298B62C600FDE166 /* LTResultDataModel.swift */; };
+		16B4EF8D29964D650058B8CE /* LTResultOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B4EF8C29964D650058B8CE /* LTResultOperationView.swift */; };
+		16B4EF8F299A3CB80058B8CE /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B4EF8E299A3CB80058B8CE /* String+Extension.swift */; };
+		16B4EF94299B2BB30058B8CE /* LTDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B4EF93299B2BB30058B8CE /* LTDatabaseManager.swift */; };
 		16BC1447298B92D5000BA943 /* LTResultItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC1446298B92D5000BA943 /* LTResultItemCell.swift */; };
 		16BC146B298BB68E000BA943 /* LTResultListNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC146A298BB68E000BA943 /* LTResultListNavBarView.swift */; };
 		16BC146E298BCBA9000BA943 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC146D298BCBA9000BA943 /* Toast.swift */; };
@@ -75,6 +78,9 @@
 		1662043B298A643000FDE166 /* LTDLTResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTDLTResultView.swift; sourceTree = "<group>"; };
 		1662043D298A683600FDE166 /* LTResultListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTResultListViewController.swift; sourceTree = "<group>"; };
 		16620461298B62C600FDE166 /* LTResultDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTResultDataModel.swift; sourceTree = "<group>"; };
+		16B4EF8C29964D650058B8CE /* LTResultOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTResultOperationView.swift; sourceTree = "<group>"; };
+		16B4EF8E299A3CB80058B8CE /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		16B4EF93299B2BB30058B8CE /* LTDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTDatabaseManager.swift; sourceTree = "<group>"; };
 		16BC1446298B92D5000BA943 /* LTResultItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTResultItemCell.swift; sourceTree = "<group>"; };
 		16BC146A298BB68E000BA943 /* LTResultListNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTResultListNavBarView.swift; sourceTree = "<group>"; };
 		16BC146D298BCBA9000BA943 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -147,6 +153,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16B4EF8B29964D1E0058B8CE /* LTResultOperationView */ = {
+			isa = PBXGroup;
+			children = (
+				16B4EF8C29964D650058B8CE /* LTResultOperationView.swift */,
+			);
+			path = LTResultOperationView;
+			sourceTree = "<group>";
+		};
+		16B4EF92299B2B970058B8CE /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				16B4EF93299B2BB30058B8CE /* LTDatabaseManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		16BC146C298BCBA9000BA943 /* Toast */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +219,7 @@
 		16CC3C4F2984F72C00B881D2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				16B4EF92299B2B970058B8CE /* Manager */,
 				16CC3CD72986548700B881D2 /* Extensions */,
 				16CC3CD3298618E500B881D2 /* Common */,
 				16CC3C62298523E600B881D2 /* ThirdSDK */,
@@ -221,6 +244,7 @@
 		16CC3C512984F9C000B881D2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				16B4EF8B29964D1E0058B8CE /* LTResultOperationView */,
 				16BC161F299248CE000BA943 /* LTToolsFolderView */,
 				16CC3CD1298535DD00B881D2 /* LTHomeBottomTabView.swift */,
 				16CC3CFE29867E2900B881D2 /* LTHomeNavBarView.swift */,
@@ -332,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				16CC3CDA298654C800B881D2 /* UIColor+Extension.swift */,
+				16B4EF8E299A3CB80058B8CE /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -429,6 +454,7 @@
 				16BC146E298BCBA9000BA943 /* Toast.swift in Sources */,
 				16CC3CDB298654C800B881D2 /* UIColor+Extension.swift in Sources */,
 				16CC3CA8298523FF00B881D2 /* Debugging.swift in Sources */,
+				16B4EF8F299A3CB80058B8CE /* String+Extension.swift in Sources */,
 				16CC3CA2298523FF00B881D2 /* ConstraintMaker.swift in Sources */,
 				16CC3C8B298523FE00B881D2 /* LayoutConstraintItem.swift in Sources */,
 				16CC3CA5298523FF00B881D2 /* ConstraintView+Extensions.swift in Sources */,
@@ -441,6 +467,7 @@
 				16CC3CD62986191A00B881D2 /* CMGradientView.swift in Sources */,
 				16CC3C9B298523FE00B881D2 /* ConstraintView.swift in Sources */,
 				16CC3C91298523FE00B881D2 /* ConstraintInsets.swift in Sources */,
+				16B4EF8D29964D650058B8CE /* LTResultOperationView.swift in Sources */,
 				1662043E298A683600FDE166 /* LTResultListViewController.swift in Sources */,
 				16CC3C9A298523FE00B881D2 /* UILayoutSupport+Extensions.swift in Sources */,
 				1662043C298A643000FDE166 /* LTDLTResultView.swift in Sources */,
@@ -464,6 +491,7 @@
 				16CC3C99298523FE00B881D2 /* ConstraintConfig.swift in Sources */,
 				16CC3C92298523FE00B881D2 /* ConstraintMakerFinalizable.swift in Sources */,
 				16CC3C8F298523FE00B881D2 /* ConstraintViewDSL.swift in Sources */,
+				16B4EF94299B2BB30058B8CE /* LTDatabaseManager.swift in Sources */,
 				16BC1447298B92D5000BA943 /* LTResultItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

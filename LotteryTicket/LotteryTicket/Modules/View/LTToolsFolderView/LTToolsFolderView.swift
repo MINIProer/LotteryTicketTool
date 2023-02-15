@@ -134,6 +134,7 @@ class LTToolsFolderView: UIView, UICollectionViewDataSource, UICollectionViewDel
         cell.refreshUI(withModel: model)
         
         cell.cellClickClourse = { () in
+            self.hideActionView()
             self.delegate?.clickItem(withIndex: indexPath.row)
         }
         

@@ -9,13 +9,31 @@ import UIKit
 
 class LTHomeViewController: UIViewController, LTHomeNavBarViewDelegate, LTHomeBottomTabViewDelegate {
 
+    /// 记录类型
+    var recordType = LTRecordType.LTRecordType_SSQ
+    
     //MARK: <LifetCycle>
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configDefault()
         setupUI()
+        
+        LTDatabaseManager.shared.openDB()
+        LTDatabaseManager.shared.createTable()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DispatchQueue.global(qos: .default).async {
+            if let dataSource = LTDatabaseManager.shared.queryAll(WithType: self.recordType) {
+                DispatchQueue.main.async {
+                    print(dataSource.count)
+                }
+            }
+        }
     }
     
     //MARK: <PrivateMethod>
@@ -46,6 +64,7 @@ class LTHomeViewController: UIViewController, LTHomeNavBarViewDelegate, LTHomeBo
     func didSelectSegment(atIndex index: Int) {
         let recordType = LTRecordType(rawValue: index)
         self.homeBottomTabView.recordType = recordType!
+        self.recordType = recordType!
     }
     
     //MARK: < LTHomeBottomTabViewDelegate >

@@ -138,10 +138,10 @@ class LTDataSourceViewModel {
         var model: LTResultDataItemModel?
         
         switch index {
-        case 1:
+        case 0:
             model = randomFetchOneResultFromDataSource()
         default:
-            self.controller?.view.makeToast("123123123")
+            self.controller?.view.makeToast("暂无此筛选公式")
             break
         }
         

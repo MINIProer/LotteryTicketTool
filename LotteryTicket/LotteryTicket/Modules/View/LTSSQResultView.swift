@@ -17,6 +17,13 @@ class LTSSQResultView: UIView {
     /// 复制点击回调
     var copyClickClourse: LTCopyClickClourse?
     
+    /// 是否需要隐藏复制按钮
+    var shouldHideCopyButton: Bool = false {
+        didSet {
+            self.copyButton.isHidden = shouldHideCopyButton
+        }
+    }
+    
     //MARK: < Init >
     
     override init(frame: CGRect) {

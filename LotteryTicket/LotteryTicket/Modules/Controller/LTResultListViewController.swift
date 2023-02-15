@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LTResultListViewController: UIViewController, UITableViewDataSource, LTResultListNavBarViewDelegate, LTResultItemCellDelegate, LTToolsFolderViewDelegate {
+class LTResultListViewController: UIViewController, UITableViewDataSource, LTResultListNavBarViewDelegate, LTResultItemCellDelegate, LTToolsFolderViewDelegate, LTResultOperationViewDelegate {
 
     /// 记录类型
     var type: LTRecordType?
@@ -107,21 +107,33 @@ class LTResultListViewController: UIViewController, UITableViewDataSource, LTRes
     //MARK: < LTResultItemCellDelegate >
     
     func copyClick(number: String) {
-        
-        let pasteboard = UIPasteboard.general
-        
-        pasteboard.string = number
-        
+        number.copyToPasteboard()
         self.view.makeToast(String.init(format: "已复制到粘贴板：\n%@", number))
     }
     
     //MARK: < LTToolsFolderViewDelegate >
     
     func clickItem(withIndex index: Int) {
-        
         if let model = dataSourceVM.handlePlayWay(withIndex: index) {
-        
-            self.view.makeToast(String.init(format: "随机值：\n%@", model.lotteryTicketNumber))
+            let operationView = LTResultOperationView(fatherView: self.view)
+            operationView.delegate = self
+            operationView.createResultView(withType: self.type!, model: model)
+            operationView.showActionView()
+        }
+    }
+    
+    //MARK: < LTResultOperationViewDelegate >
+    
+    func copyClick(_ model: LTResultDataItemModel?) {
+        if let itemModel = model {
+            itemModel.lotteryTicketNumber.copyToPasteboard()
+            self.view.makeToast(String.init(format: "已复制到粘贴板：\n%@", itemModel.lotteryTicketNumber))
+        }
+    }
+    
+    func copyRecordClick(_ model: LTResultDataItemModel?) {
+        if let itemModel = model {
+            LTDatabaseManager.shared.insertToDB(withModel: itemModel)
         }
     }
     

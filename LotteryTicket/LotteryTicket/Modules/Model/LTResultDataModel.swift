@@ -36,6 +36,11 @@ struct LTResultDataItemModel: Codable {
         
         return tempString
     }
+    
+    var recordType: LTRecordType {
+        
+        return blue_ball_list.count == 1 ? LTRecordType.LTRecordType_SSQ : LTRecordType.LTRecordType_DLT
+    }
 }
 
 struct LTBallItemModel: Codable {
