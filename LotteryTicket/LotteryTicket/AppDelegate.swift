@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         configRootViewController()
+        configDatabase()
         
         return true
     }
@@ -30,6 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = UIColor.white
         self.window?.rootViewController = navVC
         self.window?.makeKeyAndVisible()
+    }
+    
+    //MARK: 配置数据库
+    func configDatabase() {
+        LTDatabaseManager.shared.openDB()
+        LTDatabaseManager.shared.createTable()
     }
 }
 

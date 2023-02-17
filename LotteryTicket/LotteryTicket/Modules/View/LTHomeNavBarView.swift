@@ -23,6 +23,14 @@ class LTHomeNavBarView: UIView {
     /// 代理对象
     var delegate: LTHomeNavBarViewDelegate?
     
+    /// 当前索引
+    var currentIndex: Int = 0 {
+        didSet {
+            updateNavBarStatus(withIndex: currentIndex)
+            self.segmentView.selectIndex = currentIndex
+        }
+    }
+    
     //MARK: < Init >
     
     override init(frame: CGRect) {

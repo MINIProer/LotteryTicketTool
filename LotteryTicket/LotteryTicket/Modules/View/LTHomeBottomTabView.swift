@@ -16,7 +16,7 @@ protocol LTHomeBottomTabViewDelegate {
 class LTHomeBottomTabView: UIView {
     
     /// 底部TabView的高度
-    static let viewH = 64
+    static let viewH = 64.0
     
     /// 底部TabView的宽度
     static let viewW = UIScreen.main.bounds.width - 10
@@ -67,14 +67,14 @@ class LTHomeBottomTabView: UIView {
         playSSQLabel.snp.makeConstraints { make in
             make.leading.equalTo(self)
             make.centerY.equalTo(self)
-            make.size.equalTo(CGSize(width: Int(LTHomeBottomTabView.viewW) - 75, height: LTHomeBottomTabView.viewH - 12))
+            make.size.equalTo(CGSize(width: Int(LTHomeBottomTabView.viewW) - 75, height: Int(LTHomeBottomTabView.viewH) - 12))
         }
         
         self.addSubview(playDLTLabel)
         playDLTLabel.snp.makeConstraints { make in
             make.trailing.equalTo(self)
             make.centerY.equalTo(self)
-            make.size.equalTo(CGSize(width: Int(LTHomeBottomTabView.viewW) - 75, height: LTHomeBottomTabView.viewH - 12))
+            make.size.equalTo(CGSize(width: Int(LTHomeBottomTabView.viewW) - 75, height: Int(LTHomeBottomTabView.viewH) - 12))
         }
     }
     

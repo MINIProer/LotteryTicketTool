@@ -22,6 +22,7 @@
 		16BC162729933D34000BA943 /* folder_config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16BC162629933D34000BA943 /* folder_config.plist */; };
 		16BC16AA2993727E000BA943 /* LTFolderItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC16A92993727E000BA943 /* LTFolderItemModel.swift */; };
 		16BC16AC299372C9000BA943 /* LTFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC16AB299372C9000BA943 /* LTFolderViewModel.swift */; };
+		16C810DB299CB736007EAA7C /* LTRecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C810DA299CB736007EAA7C /* LTRecordListViewController.swift */; };
 		16CC3BDD2984F43C00B881D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CC3BDC2984F43C00B881D2 /* AppDelegate.swift */; };
 		16CC3BE42984F43C00B881D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CC3BE22984F43C00B881D2 /* Main.storyboard */; };
 		16CC3BE62984F43E00B881D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CC3BE52984F43E00B881D2 /* Assets.xcassets */; };
@@ -89,6 +90,7 @@
 		16BC162629933D34000BA943 /* folder_config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = folder_config.plist; sourceTree = "<group>"; };
 		16BC16A92993727E000BA943 /* LTFolderItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTFolderItemModel.swift; sourceTree = "<group>"; };
 		16BC16AB299372C9000BA943 /* LTFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTFolderViewModel.swift; sourceTree = "<group>"; };
+		16C810DA299CB736007EAA7C /* LTRecordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTRecordListViewController.swift; sourceTree = "<group>"; };
 		16CC3BD92984F43C00B881D2 /* LotteryTicket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LotteryTicket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CC3BDC2984F43C00B881D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16CC3BE32984F43C00B881D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				16CC3C542984F9F700B881D2 /* LTMainViewController.swift */,
 				16CC3C582984FADB00B881D2 /* LTHomeViewController.swift */,
 				1662043D298A683600FDE166 /* LTResultListViewController.swift */,
+				16C810DA299CB736007EAA7C /* LTRecordListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				16CC3CAB298523FF00B881D2 /* ConstraintLayoutGuide+Extensions.swift in Sources */,
 				16CC3C9D298523FE00B881D2 /* ConstraintLayoutSupport.swift in Sources */,
 				16CC3C8E298523FE00B881D2 /* ConstraintAttributes.swift in Sources */,
+				16C810DB299CB736007EAA7C /* LTRecordListViewController.swift in Sources */,
 				16CC3CA4298523FF00B881D2 /* ConstraintLayoutGuideDSL.swift in Sources */,
 				16CC3C8A298523FE00B881D2 /* ConstraintMultiplierTarget.swift in Sources */,
 				16CC3CD2298535DD00B881D2 /* LTHomeBottomTabView.swift in Sources */,
